@@ -23,7 +23,7 @@ class Scoreboard(Turtle):
 
     def update_scoreboard(self):
         self.clear()
-        self.goto(0, 340)
+        self.goto(0, 300)
         self.write(f"Score: {self.score}, Lives: {self.life}", align=ALIGNMENT, font=FONT)
         self.draw_divider()
 

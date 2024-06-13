@@ -4,7 +4,7 @@ from ball import Ball
 from scoreboard import Scoreboard
 from bricks import Brick
 import time
-from tkinter import Button
+from tkinter import Button, Tk, Frame
 
 
 def pause_game():
@@ -12,7 +12,7 @@ def pause_game():
     game_is_paused = not game_is_paused
 
 def restart_game():
-    global game_is_on, game_is_paused, paddle, ball, scoreboard, bricks
+    global game_is_on, game_is_paused, scoreboard, bricks
 
     # Reset the game state
     game_is_paused = True
@@ -53,12 +53,16 @@ screen.tracer(0)
 
 
 root = screen._root
+root.configure(bg='black')
 
-pause_btn = Button(root, text="Pause", command=pause_game)
-pause_btn.pack()
+button_frame = Frame(root, bg='black')
+button_frame.pack(pady=10)
 
-restart_btn = Button(root, text="Restart", command=restart_game)
-restart_btn.pack()
+pause_btn = Button(button_frame, text="Pause", command=pause_game, bg='grey', fg='white', font=('Lucida Console', 12))
+pause_btn.pack(side='left', padx=10)
+
+restart_btn = Button(button_frame, text="Restart", command=restart_game, bg='grey', fg='white', font=('Lucida Console', 12))
+restart_btn.pack(side='right', padx=10)
 
 
 paddle = Paddle((0, -350))
