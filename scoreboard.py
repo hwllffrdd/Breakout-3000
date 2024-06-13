@@ -1,12 +1,13 @@
 from turtle import Turtle
 
 ALIGNMENT = "center"
-FONT = ("Verdana", 60, "normal")
+FONT = ("Lucida Console", 34, "normal")
 
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.score = 0
+        self.life = 5
         self.color("white")
         self.hideturtle()
         self.penup()
@@ -22,9 +23,22 @@ class Scoreboard(Turtle):
 
     def update_scoreboard(self):
         self.clear()
-        self.goto(-100, 300)
-        self.write(self.score, align=ALIGNMENT, font=FONT)
+        self.goto(0, 340)
+        self.write(f"Score: {self.score}, Lives: {self.life}", align=ALIGNMENT, font=FONT)
+        self.draw_divider()
 
     def point(self):
         self.score += 1
         self.update_scoreboard()
+
+    def lostlife(self):
+        self.life -= 1
+        self.update_scoreboard()
+
+    def win(self):
+        self.goto(0,0)
+        self.write(f"Congratulations!\nYour score is: {self.score}", align=ALIGNMENT, font=FONT)
+
+    def lose(self):
+        self.goto(0,0)
+        self.write(f"Game over", align=ALIGNMENT, font=FONT)

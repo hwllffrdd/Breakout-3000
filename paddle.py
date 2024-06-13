@@ -16,3 +16,7 @@ class Paddle(Turtle):
     def go_right(self):
         new_x = self.xcor() - 20
         self.goto(new_x, self.ycor())
+
+    def reset_position(self):
+        self.goto(0, -350)
+
