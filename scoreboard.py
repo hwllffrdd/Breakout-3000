@@ -37,8 +37,8 @@ class Scoreboard(Turtle):
 
     def win(self):
         self.goto(0,0)
-        self.write(f"Congratulations!\nYour score is: {self.score}", align=ALIGNMENT, font=FONT)
+        self.write(f"We did it Joe!", align=ALIGNMENT, font=FONT)
 
     def lose(self):
         self.goto(0,0)
-        self.write(f"Game over", align=ALIGNMENT, font=FONT)
+        self.write(f"So sad!", align=ALIGNMENT, font=FONT)

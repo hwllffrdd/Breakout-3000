@@ -125,20 +125,5 @@ while game_is_on:
 
     screen.update()
 
-    if not game_is_on:
-        ball.reset_position()
-        scoreboard.reset()
-        for brick in bricks:
-            brick.goto(1000, 1000)
-        bricks.clear()
-        for y in range(brick_rows):
-            for x in range(brick_cols):
-                x_offset = (x * (brick_width + brick_spacing_x)) - (300 - (brick_width // 2))
-                if y % 2 == 0:
-                    x_offset += brick_width // 2
-                y_offset = (y * (brick_height + brick_spacing_y)) + 50
-                bricks.append(Brick((x_offset, y_offset)))
-        game_is_paused = False
-        game_is_on = True
 
 screen.exitonclick()
