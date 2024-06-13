@@ -11,28 +11,26 @@ def pause_game():
     global game_is_paused
     game_is_paused = not game_is_paused
 
+
 def restart_game():
     global game_is_on, game_is_paused, scoreboard, bricks
 
-    # Reset the game state
     game_is_paused = True
     game_is_on = True
 
-    # Reset the scoreboard
     scoreboard.score = 0
     scoreboard.life = 5
     scoreboard.update_scoreboard()
 
-    # Reset the ball position
     ball.reset_position()
 
-    # Reset the bricks (move old bricks out of view and create new bricks)
     for brick in bricks:
         brick.goto(1000, 1000)  # Move bricks out of view
     bricks.clear()
     create_bricks()
 
     game_is_paused = False
+
 
 def create_bricks():
     global bricks
@@ -93,7 +91,6 @@ while game_is_on:
         time.sleep(move_speed)
         screen.update()
         ball.move()
-
 
         if ball.xcor() > 275 or ball.xcor() < -285:
             ball.bounce_x()
